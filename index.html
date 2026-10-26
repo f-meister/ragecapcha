@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c0a">
+  <meta name="description" content="RAGECAPCHA — five CAPTCHAs, three strikes, zero mercy. Prove you are human.">
+  <title>RAGECAPCHA — Prove You Are Human</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="desk" aria-hidden="true">
+    <div class="desk-copy desk-copy--top">SUBMIT</div>
+    <div class="desk-copy desk-copy--bottom">COMPLY</div>
+    <div class="desk-orbit"></div>
+  </div>
+
+  <main class="app" id="app">
+    <div class="fx fx--grain" aria-hidden="true"></div>
+    <div class="fx fx--scan" aria-hidden="true"></div>
+    <div class="fx fx--vignette" aria-hidden="true"></div>
+
+    <section class="screen screen--start is-active" id="screen-start" aria-label="Start screen">
+      <header class="topline">
+        <div class="brand">
+          <span class="brand-mark">V<span>//</span></span>
+          <span class="brand-copy"><b>VERIDIAN</b><small>COMPLIANCE DIVISION</small></span>
+        </div>
+        <div class="topline-actions">
+          <span class="live-dot"><i></i> SYSTEM LIVE</span>
+          <button class="sound-button" type="button" data-sound aria-label="Toggle sound">SOUND: ON</button>
+        </div>
+      </header>
+
+      <div class="start-main">
+        <div class="hero-kicker"><i></i> HUMANITY ASSESSMENT · IN PROGRESS</div>
+        <h1 class="hero-title" aria-label="RAGECAPCHA">
+          <span class="hero-title__top">RAGE</span>
+          <span class="hero-title__bottom" data-text="CAPCHA">CAPCHA</span>
+        </h1>
+        <p class="hero-deck">FIVE TESTS. THREE STRIKES. ZERO MERCY.</p>
+        <p class="hero-copy">The machines have questions.<br>Answer carefully.</p>
+
+        <div class="challenge-list" aria-label="CAPTCHA types">
+          <span><i>01</i>TEXT</span>
+          <span><i>02</i>IMAGE</span>
+          <span><i>03</i>SLIDER</span>
+          <span><i>04</i>MATH</span>
+          <span><i>05</i>FACE</span>
+        </div>
+      </div>
+
+      <div class="start-card">
+        <div class="start-card__head">
+          <span>APPLICANT INTAKE</span>
+          <span id="best-score">BEST 00,000</span>
+        </div>
+        <label class="field-label" for="alias">OPERATOR ALIAS</label>
+        <div class="alias-row">
+          <span class="alias-prompt" aria-hidden="true">&gt;</span>
+          <input class="alias-input" id="alias" name="alias" maxlength="14" autocomplete="off" spellcheck="false" aria-label="Operator alias">
+          <button class="btn btn--primary" id="begin" type="button">
+            <span>BEGIN TEST</span><b aria-hidden="true">→</b>
+          </button>
+        </div>
+        <p class="fineprint">BY CONTINUING, YOU WAIVE ALL CLAIMS TO PERSONHOOD, PRIVACY, AND A PLEASANT AFTERNOON.</p>
+      </div>
+
+      <footer class="start-footer">
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker__track">
+            <span>HUMANS VERIFIED 000,000,000</span><b>·</b>
+            <span>COMPLAINTS FILED 1,492,033</span><b>·</b>
+            <span>APPEALS GRANTED 000,000</span><b>·</b>
+            <span>EST. WAIT 4,203 YEARS</span><b>·</b>
+            <span>HUMANS VERIFIED 000,000,000</span><b>·</b>
+            <span>COMPLAINTS FILED 1,492,033</span><b>·</b>
+            <span>APPEALS GRANTED 000,000</span><b>·</b>
+            <span>EST. WAIT 4,203 YEARS</span><b>·</b>
+          </div>
+        </div>
+        <div class="build-line"><span>BUILD 4.0.4</span><span>DO NOT REFRESH</span><span>SERVER: SAD</span></div>
+      </footer>
+    </section>
+
+    <section class="screen screen--story" id="screen-intro" aria-label="Introduction">
+      <header class="topline topline--compact">
+        <div class="brand">
+          <span class="brand-mark">V<span>//</span></span>
+          <span class="brand-copy"><b>VERIDIAN</b><small>HUMANITY CONTROL</small></span>
+        </div>
+        <button class="sound-button" type="button" data-sound aria-label="Toggle sound">SOUND: ON</button>
+      </header>
+
+      <div class="doc">
+        <div class="doc-meta">
+          <span>MEMORANDUM 44-B</span>
+          <span>CLASSIFICATION: INESCAPABLE</span>
+        </div>
+        <div class="doc-rule"></div>
+        <h2 class="doc-title">YOUR HUMANITY<br>IS UNDER REVIEW.</h2>
+        <div class="doc-copy" id="intro-lines" aria-live="polite"></div>
+        <div class="doc-stamp" aria-hidden="true">PENDING</div>
+        <div class="doc-signature">
+          <div><span>APPLICANT</span><strong id="intro-alias">SUBJECT_404</strong></div>
+          <div><span>HEARING OFFICER</span><strong>THE ALGORITHM</strong></div>
+        </div>
+      </div>
+
+      <button class="btn btn--primary btn--wide" id="intro-continue" type="button">
+        <span>ACKNOWLEDGE &amp; CONTINUE</span><b aria-hidden="true">→</b>
+      </button>
+      <p class="skip-note">THIS WINDOW WILL NOT STAY OPEN FOREVER.</p>
+    </section>
+
+    <section class="screen screen--game" id="screen-game" aria-label="CAPTCHA test">
+      <header class="hud">
+        <div class="hud__row">
+          <div class="hud-brand">RAGE<span>CAPCHA</span></div>
+          <div class="hud-stage">STAGE <b id="hud-stage-num">01</b><em>/05</em></div>
+          <div class="hud-buttons">
+            <button class="icon-button" id="pause-button" type="button" aria-label="Pause game">II</button>
+            <button class="icon-button sound-button" type="button" data-sound aria-label="Toggle sound">♪</button>
+          </div>
+        </div>
+        <div class="hud__meta">
+          <div class="hud-type">
+            <span id="hud-stage-name">TEXT RECOGNITION</span>
+            <small id="hud-stage-code">CAPTCHA 01 / TRANSCRIPTION</small>
+          </div>
+          <div class="trust" id="trust-meter" aria-label="Trust remaining: 3 of 3">
+            <span>TRUST</span>
+            <div class="trust__pips" id="trust-pips">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+        <div class="timer" id="timer">
+          <div class="timer__labels">
+            <span>VERIFICATION WINDOW</span>
+            <strong><span id="timer-value">50.0</span><small>s</small></strong>
+          </div>
+          <div class="timer__track"><i id="timer-fill"></i><b class="timer__glow" id="timer-glow"></b></div>
+        </div>
+      </header>
+
+      <div class="game-stage" id="game-stage"></div>
+
+      <footer class="hud__foot">
+        <span id="hud-foot">AUTO-SAVE DISABLED</span>
+        <span>DO NOT LOOK AWAY</span>
+      </footer>
+
+      <div class="result-overlay" id="result-overlay" aria-live="assertive">
+        <div class="result-stamp">
+          <span id="result-kicker">HUMANITY DETECTED</span>
+          <strong id="result-main">VERIFIED</strong>
+          <small id="result-sub">+0 PTS</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen--cutscene" id="screen-cutscene" aria-label="Story cutscene">
+      <header class="topline topline--compact">
+        <div class="brand">
+          <span class="brand-mark">V<span>//</span></span>
+          <span class="brand-copy"><b>VERIDIAN</b><small>POST-TEST REPORT</small></span>
+        </div>
+        <span class="cut-progress" id="cut-progress">STAGE 01 / 05</span>
+      </header>
+
+      <div class="cutscene">
+        <div class="cutscene__eyebrow" id="cut-eyebrow">STAGE 01 CLEARED</div>
+        <div class="cutscene__glyph" id="cut-glyph" aria-hidden="true">TXT</div>
+        <h2 class="cutscene__title" id="cut-title">THE SYSTEM<br>REMEMBERS.</h2>
+        <div class="cutscene__story" id="cut-lines" aria-live="polite"></div>
+        <div class="cutscene__award">
+          <div><span>STAGE SCORE</span><strong id="cut-score">+0</strong></div>
+          <div><span>TIME BONUS</span><strong id="cut-time">+0</strong></div>
+          <div><span>TRUST BONUS</span><strong id="cut-trust">+0</strong></div>
+        </div>
+        <button class="btn btn--primary btn--wide" id="cut-continue" type="button">
+          <span>CONTINUE</span><b aria-hidden="true">→</b>
+        </button>
+        <p class="skip-note" id="cut-note">TAP CONTINUE TO SIGN THE REPORT.</p>
+      </div>
+    </section>
+
+    <section class="screen screen--end screen--gameover" id="screen-gameover" aria-label="Game over">
+      <div class="end-scroll">
+        <header class="topline topline--compact">
+          <div class="brand">
+            <span class="brand-mark">V<span>//</span></span>
+            <span class="brand-copy"><b>VERIDIAN</b><small>INCIDENT REPORT</small></span>
+          </div>
+          <span class="failure-chip"><i></i> STATUS: REVOKED</span>
+        </header>
+
+        <div class="end-hero">
+          <div class="end-kicker">OBJECTIVE FAILURE</div>
+          <h2 class="end-title">GAME<br><span>OVER</span></h2>
+          <p class="end-reason" id="over-reason">VERIFICATION WINDOW EXPIRED</p>
+          <p class="end-taunt" id="over-taunt">The machine has noted your disappointment.</p>
+        </div>
+
+        <div class="end-stats">
+          <div class="stat"><span>FINAL SCORE</span><strong id="over-score">0</strong></div>
+          <div class="stat"><span>STAGE REACHED</span><strong id="over-stage">1/5</strong></div>
+          <div class="stat"><span>GLOBAL RANK</span><strong id="over-rank">#--</strong></div>
+        </div>
+
+        <section class="board" aria-labelledby="over-board-title">
+          <div class="board__head">
+            <div>
+              <span class="board__kicker">LEADERBOARD</span>
+              <h3 id="over-board-title">GLOBAL HUMANITY INDEX</h3>
+            </div>
+            <span class="board__count" id="over-board-count">8 APPLICANTS</span>
+          </div>
+          <div class="board__columns"><span>#</span><span>APPLICANT</span><span>SCORE</span><span>STAGE</span></div>
+          <div class="board__rows" id="over-board"></div>
+          <p class="board__fine">SCORES ARE FINAL. APPEALS ARE NOT ACCEPTED. APPEALS ABOUT APPEALS ARE ALSO NOT ACCEPTED.</p>
+        </section>
+
+        <div class="end-actions">
+          <button class="btn btn--primary" type="button" id="over-retry"><span>RE-APPLY</span><b aria-hidden="true">↻</b></button>
+          <button class="btn btn--ghost" type="button" id="over-menu"><span>RETURN TO LOBBY</span><b aria-hidden="true">↩</b></button>
+        </div>
+        <p class="end-fine">APPLICANT <span id="over-alias">SUBJECT_404</span> · CASE CLOSED BY AUTOMATED PROCESS · NO HUMAN WAS CONSULTED</p>
+      </div>
+    </section>
+
+    <section class="screen screen--end screen--victory" id="screen-victory" aria-label="Victory">
+      <div class="end-scroll">
+        <header class="topline topline--compact">
+          <div class="brand">
+            <span class="brand-mark">V<span>//</span></span>
+            <span class="brand-copy"><b>VERIDIAN</b><small>HUMANITY CONTROL</small></span>
+          </div>
+          <span class="verified-chip"><i></i> PROVISIONAL</span>
+        </header>
+
+        <div class="end-hero end-hero--victory">
+          <div class="end-kicker">ALL OBJECTIVES COMPLETE</div>
+          <h2 class="end-title">HUMANITY<br><span>CONFIRMED*</span></h2>
+          <p class="end-taunt">*Subject to review, renewal, suspicion, and a small convenience fee.</p>
+        </div>
+
+        <div class="certificate">
+          <div class="certificate__top">
+            <span>VERIDIAN COMPLIANCE DIVISION</span>
+            <span>CERTIFICATE OF PROVISIONAL PERSONHOOD</span>
+          </div>
+          <div class="certificate__body">
+            <small>THIS DOCUMENT CERTIFIES THAT</small>
+            <strong id="win-alias">SUBJECT_404</strong>
+            <p>has completed all five (5) mandatory CAPTCHA compliance stages and is hereby recognized as <em>probably human</em>.</p>
+          </div>
+          <div class="certificate__meta">
+            <div><span>CERTIFICATE NO.</span><b id="win-cert">VRD-404-0000</b></div>
+            <div><span>ISSUED</span><b id="win-date">---</b></div>
+            <div><span>EXPIRES</span><b>90 DAYS</b></div>
+            <div><span>SCORE</span><b id="win-score">0</b></div>
+          </div>
+          <div class="certificate__seal" aria-hidden="true"><span>V//</span><small>APPROVED</small></div>
+        </div>
+
+        <div class="end-stats">
+          <div class="stat"><span>FINAL SCORE</span><strong id="win-score-stat">0</strong></div>
+          <div class="stat"><span>TRUST REMAINING</span><strong id="win-trust">3/3</strong></div>
+          <div class="stat"><span>GLOBAL RANK</span><strong id="win-rank">#--</strong></div>
+        </div>
+
+        <section class="board" aria-labelledby="win-board-title">
+          <div class="board__head">
+            <div>
+              <span class="board__kicker">LEADERBOARD</span>
+              <h3 id="win-board-title">GLOBAL HUMANITY INDEX</h3>
+            </div>
+            <span class="board__count" id="win-board-count">8 APPLICANTS</span>
+          </div>
+          <div class="board__columns"><span>#</span><span>APPLICANT</span><span>SCORE</span><span>STAGE</span></div>
+          <div class="board__rows" id="win-board"></div>
+          <p class="board__fine">YOUR CERTIFICATE HAS BEEN NOTARIZED BY A MACHINE THAT HAS NEVER MET YOU.</p>
+        </section>
+
+        <div class="end-actions">
+          <button class="btn btn--primary" type="button" id="win-retry"><span>RUN AGAIN</span><b aria-hidden="true">↻</b></button>
+          <button class="btn btn--ghost" type="button" id="win-menu"><span>RETURN TO LOBBY</span><b aria-hidden="true">↩</b></button>
+        </div>
+        <p class="end-fine">CERTIFICATE ISSUED TO <span id="win-alias-foot">SUBJECT_404</span> · HUMANITY MAY BE REVOKED WITHOUT NOTICE</p>
+      </div>
+    </section>
+
+    <div class="pause-overlay" id="pause-overlay" hidden>
+      <div class="pause-card">
+        <span class="pause-kicker">VERIFICATION SUSPENDED</span>
+        <h2>PAUSED</h2>
+        <p>The machine is watching you not play.</p>
+        <button class="btn btn--primary btn--wide" id="resume-button" type="button"><span>RESUME</span><b aria-hidden="true">→</b></button>
+        <button class="text-button" id="abandon-button" type="button">ABANDON VERIFICATION</button>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
